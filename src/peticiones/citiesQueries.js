@@ -8,8 +8,18 @@ export const getCities = async () => {
         return res.data.data;
         
     }catch(err){
-        console.log("error", err)
         return []
     }
 }
 
+
+export const getCitiesById = async (_id) => {
+ try{
+    const resp = await axios.get('http://localhost:4000/api/cities/' + _id)
+    return resp.data.data;
+
+ }catch(error){
+    return console.log(error)
+ }
+
+}
