@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     
-   <LayoutMain>
+   <>
         <h2 className='text-3xl text-center'>Popular Mytineraries</h2>
               
                
@@ -22,7 +22,7 @@ const Home = () => {
          
 
         </main>
-   </LayoutMain>
+   </>
   )
 }
 

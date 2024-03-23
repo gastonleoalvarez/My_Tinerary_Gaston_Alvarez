@@ -12,22 +12,24 @@ import authQueries from "./peticiones/authQueries";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { login } from "./redux/actions/userAction";
+import alerts from "./utils/alerts"
 
 function App() {
-  const dispatch = useDispatch()
+
+  const dispatch = useDispatch();
   useEffect(() =>{
     authQueries.loginWithToken().then((res) =>{
       if(res.status ==200){
-        dispatch(login(res.data) )
+        dispatch(login(res.data));
         alerts.success("welcome")
       }
     });
-  }, [])
+  }, []);
   
   return (
     
      <BrowserRouter>
-     
+     <LayoutMain> 
       <Routes>
 
         <Route path="/" element={<Home></Home>}/>
@@ -39,6 +41,7 @@ function App() {
       </Routes>
       
       <ToastContainer/>
+      </LayoutMain>
      </BrowserRouter>
      
 

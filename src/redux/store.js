@@ -3,7 +3,7 @@ import ciudades from "./reducers/ciudades";
 import userReducer from "./reducers/userReducer";
 
 const store = {
-    cities: ciudades ,
+    cities: ciudades,
     user: userReducer
 }
 

@@ -2,7 +2,7 @@ import { createReducer } from "@reduxjs/toolkit";
 import { login, logout } from "../actions/userAction";
 
 const initialState = {
-    user: null,
+    user: {}
 }
 
 const userReducer= createReducer( initialState, (builder) =>{
