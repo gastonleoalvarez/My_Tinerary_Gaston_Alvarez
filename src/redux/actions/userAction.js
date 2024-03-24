@@ -6,7 +6,7 @@ const login = createAction ('login', (data) => {
     }
 })
 
-export const logout = createAction('logout', () => {
+ const logout = createAction('logout', () => {
     localStorage.removeItem('token')
     return{
         payload: {}
@@ -15,5 +15,6 @@ export const logout = createAction('logout', () => {
 
 export {
     login,
+    logout
     
 }

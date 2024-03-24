@@ -1,62 +1,79 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import store from "../redux/store"; 
+import {logout} from "../redux/actions/userAction" 
 
 const Header = () => {
-
+  const location = useLocation();
 const user  = useSelector((store) => store.user.user);
 const dispatch = useDispatch()
-const location = useLocation();
 
 const links = [
   {path:"/",
   title: "HOME",
-  active: "/" == location.pathname 
+  active: "/" == location.pathname,
+  visible: true, 
   },
 
-  {path:"/cities",
+  {path:"/Cities",
   title: "CITIES",
-  active: "/cities" == location.pathname 
+  active: "/Cities" == location.pathname,
+  visible: true, 
 
   },
 
   {path: "/signup",
     title: "SIGN UP",
-  active: "/signup" == location.pathname },
+  active: "/signup" == location.pathname,
+  visible: user.first_name ? false: true,
+},
 
   {path: "/Login",
   title: "SIGN IN",
-active: "/Login" == location.pathname }
+active: "/Login" == location.pathname,
+visible: user.first_name ? false : true,
+}
 ]
 
 const handleClick = () => {
   dispatch(logout()); 
-}
+};
 
   return (
     <header className="flex justify-between items-center bg-sky-200 px-3">
         <h2>MyTineray</h2>
         <img src="" />
-        {user && <p>{user.first_name}</p>}
+        
         <nav className="flex gap-5 p-7 font-bold">
 
-        {links.map((link) =>(
-          <Link key={link.title} 
-          className={`font-semibold ${link.active ? "text-blue" : ""}`}
-          to={link.path}>{link.title}</Link>
+        {links.map((link) => (
+        <Options key={link.title} link={link}/>
         ))}
 
-         <img className="w-7 h-7"  src="/images.png"/>
-
-           
-             <button 
-             onClick={handleClick}>LOG OUT</button>
-           
-         
+            
+         {user.first_name && ( 
+           <button 
+           onClick={handleClick}>LOG OUT</button>
+         )}
         </nav>
       </header>
   );
 };
 
 export default Header;
+
+const Options = ({link}) => {
+  if(link.visible){
+    return <Link 
+    key={link.title} 
+    className={`font-semibold ${link.active ? "text-blue" : ""}`}
+    to={link.path}
+    >{link.title}
+    </Link>
+
+  }else{
+    <></>;
+  }
+ 
+}
+

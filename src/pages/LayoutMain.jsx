@@ -9,12 +9,10 @@ import Footer from '../components/Footer'
       
     <div className="w-full min-h-screen flex flex-col">
       
-      
+    
     <Header></Header>
       
-    <Hero></Hero>
-
-    <Calltoaction></Calltoaction>
+    
 
     {props.children} 
       

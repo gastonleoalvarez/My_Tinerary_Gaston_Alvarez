@@ -44,7 +44,7 @@ const handleInput =() =>{
 
   return (
     <>
-    <Header></Header>
+    
     <main className="grow flex flex-col gap-5 justify-center items-center pt-20  pl-20 pb-10">
 
      <span className="text-black-600 py-2 px-4">Search city</span>

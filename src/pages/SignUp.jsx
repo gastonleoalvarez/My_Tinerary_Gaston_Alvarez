@@ -46,7 +46,7 @@ function handleSubmit(e){
 
     return(
         <>
-        <Header></Header>
+        
         <main className="flex flex-col justify-center grow pt-20 items-center mb-100">
             <h2 className="text-3xl font-bold mb-10">Sign Up</h2>
             <div className="border w-7/12 items-center bg-gray-800 pb-10 mb-40">
@@ -78,7 +78,7 @@ function handleSubmit(e){
             </div>
            
         </main>
-        <Footer></Footer>
+        
         </>
         
     )
